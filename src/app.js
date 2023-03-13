@@ -15,10 +15,14 @@ app.set('views', viewTemplates);
 hbs.registerPartials(partialTemplates);
 app.use(express.static(assets, { extensions: ['html'] }));
 
+const aboutMessage = "I am an aspiring software developer currently pursuing a B.E. degree at Thapar Institute of Engineering and Technology. I enjoy exploring new technologies and am familiar with web development. I love reading, drawing and playing cricket and football in my spare time!";
+
+const helpMessage = "This application can serve weather data from any geocoded location across the world, and does this through the hep of external APIs. The user interface is served through an express.js application.";
+
 app.get('/', (req, res) => {
     res.render('index', {
-        title: 'Home Page',
-        message: 'Welcome to my first express.js based web application!',
+        title: 'AnyWeather',
+        message: 'Enter a location below to get started:',
         name: 'Rishabh Goyal'
     })
 })
@@ -26,7 +30,7 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Page',
-        message: 'Welcome! This is where you can learn more about us.',
+        message: aboutMessage,
         name: 'Rishabh Goyal'
     })
 })
@@ -34,7 +38,7 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help Page',
-        message: 'Looking for some help? You have come to the right place.',
+        message: helpMessage,
         name: 'Rishabh Goyal'
     })
 })
